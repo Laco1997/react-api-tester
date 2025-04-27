@@ -1,0 +1,15 @@
+.nav-item {
+  button {
+    color: var(--bs-secondary-color);
+  }
+}
+
+.request-body {
+  width: 100%;
+
+  .tab-content {
+    border-top: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+}

@@ -1,0 +1,25 @@
+.actions-column {
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 5px;
+}
+
+.table {
+  border-color: var(--bs-dark-border-subtle);
+
+  td, th {
+    background: #121212 !important;
+  }
+
+  th {
+    font-weight: normal;
+  }
+
+  .actions-column {
+    width: 120px;
+  }
+}

@@ -1,0 +1,53 @@
+.container {
+  padding: 40px 20px;
+  height: 100%;
+  color: red;
+}
+
+.input-form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .input-control {
+    width: calc(100% - 100px - 1rem);
+  }
+
+  .request-type-selector {
+    border: 1px solid var(--bs-border-color);
+    max-width: 120px;
+    border-radius: 6px 0 0 6px;
+  }
+
+  .protocol-type-selector {
+    max-width: 120px;
+  }
+
+  .endpoint-input {
+    border: 1px solid var(--bs-border-color);
+    width: 80%;
+    padding: 10px;
+    border-radius: 0 6px 6px 0;
+  }
+  
+  .send-request {
+    width: 100px;
+    cursor: pointer;
+  }
+}
+
+.request-instruction {
+  color: var(--bs-tertiary-color)
+}
+
+.error {
+  color: red;
+}
+
+.react-json-view {
+  background-color: transparent !important;
+  font-size: 14px !important;
+  overflow-y: auto;
+}
+
