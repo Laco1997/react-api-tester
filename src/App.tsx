@@ -11,6 +11,7 @@ function App() {
   const [protocol, setProtocol] = useState("http://"); // Protocol
   const [response, setResponse] = useState(null); // API response
   const [error, setError] = useState(null); // Error handling
+  const [loading, setLoading] = useState(false); // Loading false
 
   const [paramRows, setParamRows] = useState([{ key: "", value: "" }]);
   const [headerRows, setHeaderRows] = useState([
@@ -80,6 +81,7 @@ function App() {
 
   const sendRequest = async () => {
     try {
+      setLoading(true);
       const paramsUrl = getQueryString();
       console.log(base);
       const fullUrl = `${protocol}${base}${paramsUrl ? `?${paramsUrl}` : ""}`;
@@ -102,9 +104,11 @@ function App() {
 
       const result = await methodMap[method as "GET" | "POST" | "PUT" | "DELETE"]();
 
+      setLoading(false);
       setResponse(result.data);
       setError(null);
     } catch(err: any) {
+      setLoading(false);
       setResponse(err.response);
       setError(err.message || "An error occurred");
     }
@@ -156,9 +160,19 @@ function App() {
         <div className="mb-3">
           <span className='fw-bold'>Response</span>
         </div>
-        {!response && !error && <div className="request-instruction">Send a request</div>}
-        {error && <div className="error mb-3">{error}</div>}
-        {response && <ReactJson src={response} theme="monokai" collapsed={false} />}
+        {loading &&
+        <div className='d-inline-flex loading'>
+          <div className='me-3'>
+            <span className='loading-text' role='status'>Fetching data...</span>
+          </div>
+          <div>
+            <div className='spinner-border spinner-border-sm ms-auto' aria-hidden="true"></div>
+          </div>
+        </div>
+        }
+        {!response && !error && !loading && <div className="request-instruction">Send a request</div>}
+        {error && !loading && <div className="error mb-3">{error}</div>}
+        {response && !loading && <ReactJson src={response} theme="monokai" collapsed={false} />}
       </div>
     </div>
   );

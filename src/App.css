@@ -38,11 +38,15 @@
 }
 
 .request-instruction {
-  color: var(--bs-tertiary-color)
+  color: var(--bs-tertiary-color);
 }
 
 .error {
   color: red;
+}
+
+.loading {
+  color: var(--bs-secondary-color);
 }
 
 .react-json-view {
