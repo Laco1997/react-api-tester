@@ -2,5 +2,6 @@
 
 Fake RESTful API: https://jsonplaceholder.typicode.com/
 
-Run script: `npm run den`
+Install dependencies: `npm install --legacy-peer-deps`
+Run script: `npm run dev`
 
